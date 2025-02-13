@@ -1,0 +1,23 @@
+name: Deploy to Loopia via FTP
+
+on:
+  push:
+    branches:
+      - main  # Pokreće se kada guraš promene na "main" granu
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ftpcluster.loopia.se  # Promeni ako Loopia koristi drugi FTP server
+          username: ${{ secrets.ikarijum }}
+          password: ${{ secrets.Bluz7727 }}
+          local-dir: ./  # Ako hoćeš da deploy-uješ ceo repozitorijum
+          server-dir: /public_html/  # Prilagodi ako je Loopia direktorijum drugačiji
