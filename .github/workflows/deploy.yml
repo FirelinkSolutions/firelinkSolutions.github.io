@@ -17,7 +17,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftpcluster.loopia.se  # Promeni ako Loopia koristi drugi FTP server
-          username: ${{ secrets.ikarijum }}
-          password: ${{ secrets.Bluz7727 }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Ako hoćeš da deploy-uješ ceo repozitorijum
           server-dir: /public_html/  # Prilagodi ako je Loopia direktorijum drugačiji
