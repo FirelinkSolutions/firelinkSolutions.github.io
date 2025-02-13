@@ -86,6 +86,16 @@ h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
 }
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 80px; /* Increase the size of the logo */
+  height: auto; /* Maintain the aspect ratio */
+  margin-right: 15px; /* Add space between the logo and the sitename */
+}
 
 /* Pulsating Play Button
 ------------------------------*/
@@ -827,48 +837,108 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.about {
+  display: flex;
+  justify-content: center; /* Center the content */
+  align-items: center; /* Vertically align content and image */
+  gap: 30px; /* Spacing between content and image */
+  padding: 60px 0; /* Section padding */
+  max-width: 1200px; /* Constrain width */
+  margin: 0 auto; /* Center the section within the page */
+}
+
+.about .content {
+  flex: 1; /* Allow equal space for the content */
+  background-color: var(--surface-color); /* Dark background for the card */
+  border-radius: 12px; /* Rounded corners */
+  padding: 30px; /* Space inside the card */
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.7); /* Add shadow for depth */
+  color: #b0bec5; /* Soft blue-gray text */
+  line-height: 1.8; /* Improve readability */
+}
+.about .content:hover {
+  background: var(--background-color);
+}
+
+
 .about .content h3 {
+  color: #e0f7fa; /* Light cyan for heading */
   font-size: 2rem;
   font-weight: 700;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #87ceeb; /* Cyan underline */
+  display: inline-block;
 }
 
 .about .content ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .about .content ul li {
   display: flex;
   align-items: flex-start;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .about .content ul i {
-  flex-shrink: 0;
-  font-size: 48px;
-  color: var(--accent-color);
-  margin-right: 20px;
-  line-height: 0;
+  font-size: 32px;
+  color: #87ceeb; /* Accent color */
+  margin-right: 15px;
 }
 
 .about .content ul h5 {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin: 0;
 }
 
 .about .content ul p {
-  font-size: 15px;
+  font-size: 1rem;
+  margin: 0;
 }
 
-.about .content p:last-child {
-  margin-bottom: 0;
+.about .image-container {
+  flex: 1; /* Allow equal space for the image */
+  display: flex;
+  justify-content: center; /* Center the image */
+  align-items: center; /* Vertically align image */
+  position: relative;
+  overflow: hidden; /* Prevent overflow */
+  border-radius: 12px; /* Rounded corners for the image */
 }
 
-.about .pulsating-play-btn {
-  position: absolute;
-  left: calc(50% - 47px);
-  top: calc(50% - 47px);
+.about .image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image fits perfectly */
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Smooth hover effect */
+  filter: grayscale(70%) brightness(0.9); /* Faded initial effect */
 }
+
+.about .image-container img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  filter: grayscale(0%) brightness(1); /* Full color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column; /* Stack vertically on small screens */
+  }
+
+  .about .content,
+  .about .image-container {
+    flex: unset;
+    width: 100%; /* Full width for mobile */
+  }
+
+  .about .image-container img {
+    border-radius: 0; /* Remove rounded corners for smaller screens */
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Stats Section
